@@ -1,10 +1,9 @@
-const { serve } = require("@hono/node-server");
 const { Hono } = require("hono");
-const { html } = require("hono/html");
+const { serve } = require("@hono/node-server");
 const { logger } = require("hono/logger");
+const { html } = require("hono/html");
 
 const app = new Hono();
-
 app.use(logger());
 
 app.get("/", (c) => {
@@ -12,6 +11,9 @@ app.get("/", (c) => {
   return c.html(html`
     <!doctype html>
     <html>
+      <head>
+        <title>Home</title>
+      </head>
       <body>
         <h1>こんにちは！ ${name} さん</h1>
         <p>これは Hono のサンプルアプリケーションです。</p>
